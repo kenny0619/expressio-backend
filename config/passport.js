@@ -11,9 +11,9 @@ passport.use(
       passwordField: "user[password]",
     },
     (email, password, done) => {
-      User.findOne({ email: email })
+      User.findOne({ email })
         .then((user) => {
-          if (!user || !user.validPassword(password)) {
+          if (!user || !user.validatePassword(password)) {
             return done(null, false, {
               errors: { "email or password": "is invalid" },
             });

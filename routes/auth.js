@@ -16,11 +16,13 @@ getTokenFromHeader = (req) => {
 const auth = {
   required: jwt({
     secret: secret,
+    algorithms: ["RS256"],
     userProperty: "payload",
     getToken: getTokenFromHeader,
   }),
   optional: jwt({
     secret: secret,
+    algorithms: ["RS256"],
     userProperty: "payload",
     credentialsRequired: false,
     getToken: getTokenFromHeader,

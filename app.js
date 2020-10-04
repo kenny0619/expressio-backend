@@ -8,9 +8,6 @@ require("./db/mongoose");
 require("./models/User");
 require("./config/passport");
 
-// const indexRouter = require("./routes/index");
-// const usersRouter = require("./routes/users");
-
 const app = express();
 
 app.use(logger("dev"));
@@ -20,8 +17,5 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(require("./routes"));
-
-// app.use("/", indexRouter);
-// app.use("/users", usersRouter);
 
 module.exports = app;

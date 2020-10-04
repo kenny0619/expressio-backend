@@ -39,15 +39,16 @@ UserSchema.methods.setPassword = function (password) {
 };
 
 //method to validate passwords
-UserSchema.methods.validPassword = function () {
+UserSchema.methods.validatePassword = function (password) {
   const hash = crypto
     .pbkdf2Sync(password, this.salt, 10000, 512, "sha512")
     .toString("hex");
+  return this.hash === hash;
 };
 
 //method on the user model to generate a JWT
 UserSchema.methods.generateJWT = function () {
-  const Today = new Date();
+  const today = new Date();
   const exp = new Date(today);
   exp.setDate(today.getDate() + 60);
 
