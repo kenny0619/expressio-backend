@@ -41,6 +41,8 @@ router.post("/users/login", (req, res, next) => {
 
     if (user) {
       user.token = user.generateJWT();
+      console.log(user.token);
+      console.log(user.toAuthJSON());
       return res.json({ user: user.toAuthJSON() });
     } else {
       return res.status(422).json(info);
@@ -49,8 +51,8 @@ router.post("/users/login", (req, res, next) => {
 });
 
 //endpoint to get the current user's auth payload from their token
-router.get("/user", auth.required, (req, res, next) => {
-  User.findById(req.payload.id)
+router.get("/user/:id", auth.required, (req, res, next) => {
+  User.findById(req.params.id)
     .then((user) => {
       if (!user) {
         return res.sendStatus(401);
@@ -62,8 +64,8 @@ router.get("/user", auth.required, (req, res, next) => {
 });
 
 // update users endpoint
-router.put("/user", auth.required, (req, res, next) => {
-  User.findById(req.payload.id)
+router.put("/user/:id", auth.required, (req, res, next) => {
+  User.findById(req.params.id)
     .then((user) => {
       if (!user) {
         return res.sendStatus(401);
