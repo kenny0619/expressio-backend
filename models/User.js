@@ -72,4 +72,12 @@ UserSchema.methods.toAuthJSON = function () {
   };
 };
 
+// method that returns their public profile data
+UserSchema.methods.toProfileJSONFor = function (user) {
+  return {
+    username: this.username,
+    following: false,
+  };
+};
+
 model("User", UserSchema);
