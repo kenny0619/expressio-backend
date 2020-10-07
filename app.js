@@ -14,7 +14,7 @@ const app = express();
 //use cors
 const allowlist = [
   "http://localhost:3000",
-  "https://expressio-api.herokuapp.com",
+  "https://expressionapp.netlify.app",
 ];
 
 const corsOptionsDelegate = (req, callback) => {
