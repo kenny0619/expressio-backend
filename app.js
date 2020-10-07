@@ -48,6 +48,7 @@ app.use(
 
 require("./db/mongoose");
 require("./models/User");
+require("./models/Room");
 require("./config/passport");
 
 app.use(require("./routes"));
