@@ -29,6 +29,7 @@
     "slugify": "^1.4.5",
     "underscore": "^1.11.0",
     "unique-names-generator": "^4.3.1",
+    "unique-slug": "^2.0.2",
     "validator": "^13.1.17"
   }
 }
