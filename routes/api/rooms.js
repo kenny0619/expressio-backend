@@ -25,4 +25,34 @@ router.post("/", auth.required, (req, res, next) => {
     .catch(next);
 });
 
+// router.param to intercept & prepopulate room data from the slug
+router.param("room", (req, res, next, slug) => {
+  Room.findOne({ slug: slug })
+    .populate("creator")
+    .then((room) => {
+      if (!room) {
+        return res.sendStatus(404);
+      }
+
+      req.room = room;
+
+      return next();
+    })
+    .catch(next);
+});
+
+//endpoint for retrieving by its slug
+router.get("/:room", auth.optional, (req, res, next) => {
+  Promise.all([
+    req.params ? User.findById(req.params.id) : null,
+    req.room.populate("creator").execPopulate(),
+  ])
+    .then((results) => {
+      const user = results[0];
+
+      return res.json({ room: req.room.toJSONFor(user) });
+    })
+    .catch(next);
+});
+
 module.exports = router;

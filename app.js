@@ -9,27 +9,7 @@ const session = require("express-session");
 const app = express();
 
 //use cors
-const allowlist = [
-  "http://localhost:3000",
-  "https://expressionapp.netlify.app",
-];
-
-const corsOptionsDelegate = (req, callback) => {
-  let corsOptions;
-
-  let isDomainAllowed = allowlist.indexOf(req.header("Origin")) !== -1;
-
-  if (isDomainAllowed) {
-    // Enable CORS for this request
-    corsOptions = { origin: true };
-  } else {
-    // Disable CORS for this request
-    corsOptions = { origin: false };
-  }
-  callback(null, corsOptions);
-};
-
-app.use(cors(corsOptionsDelegate));
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());
