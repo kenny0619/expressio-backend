@@ -14,7 +14,7 @@ app.use((req, res, next) => {
   let isDomainAllowed = whitelist.indexOf(req.headers.origin) !== -1;
 
   if (isDomainAllowed) {
-    res.headers("ACCESS-CONTROL-ALLOW-ORIGIN", req.headers.origin);
+    res.header("ACCESS-CONTROL-ALLOW-ORIGIN", req.headers.origin);
   }
 
   next();
