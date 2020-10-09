@@ -8,23 +8,17 @@ const session = require("express-session");
 
 const app = express();
 
-const whitelist = [process.env.LOCALHOST_URI, process.env.NETLIFY_URI];
+app.use((req, res, next) => {
+  const whitelist = [process.env.LOCALHOST_URI, process.env.NETLIFY_URI];
 
-const corsOptionsDelegate = (req, callback) => {
-  let corsOptions;
-
-  let isDomainAllowed = whitelist.indexOf(req.headers(".Origin")) !== -1;
+  let isDomainAllowed = whitelist.indexOf(req.headers.origin) !== -1;
 
   if (isDomainAllowed) {
-    // Enable CORS for this request
-    corsOptions = { origin: true };
-  } else {
-    // Disable CORS for this request
-    corsOptions = { origin: false };
+    res.headers("ACCESS-CONTROL-ALLOW-ORIGIN", req.headers.origin);
   }
-  callback(null, corsOptions);
-};
 
+  next();
+});
 // app.use(cors());
 
 app.use(logger("dev"));
