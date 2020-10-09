@@ -8,27 +8,18 @@ const session = require("express-session");
 
 const app = express();
 
-// const whitelist = [
-//   "http://localhost:3000",
-//   "https://expressionapp.netlify.app",
-// ];
+app.use((req, res, next) => {
+  const whitelist = [process.env.LOCALHOST_URI, process.env.NETLIFY_URI];
 
-// const corsOptionsDelegate = (req, callback) => {
-//   let corsOptions;
+  let isDomainAllowed = whitelist.indexOf(req.headers.origin) !== -1;
 
-//   let isDomainAllowed = allowlist.indexOf(req.header("Origin")) !== -1;
+  if (isDomainAllowed) {
+    res.headers("ACCESS-CONTROL-ALLOW-ORIGIN", req.headers.origin);
+  }
 
-//   if (isDomainAllowed) {
-//    // Enable CORS for this request
-//     corsOptions = { origin: true };
-//   } else {
-//     // Disable CORS for this request
-//     corsOptions = { origin: false };
-//   }
-//   callback(null, corsOptions);
-// };
-
-app.use(cors());
+  next();
+});
+// app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());
