@@ -22,13 +22,16 @@ router.param("username", (req, res, next, username) => {
 // endpoint to fetch a user's profile by their username
 router.get("/:username", auth.optional, (req, res, next) => {
   if (req.params) {
-    User.findById(req.params.id).then((user) => {
-      if (!user) {
-        return res.json({ profile: req.toProfileJSONFor(false) });
-      }
-    });
+    User.findById(req.params.id)
+      .then((user) => {
+        if (!user) {
+          return res.json({ profile: req.profile.toProfileJSONFor(false) });
+        }
+        return res.json({ profile: req.profile.toProfileJSONFor(user) });
+      })
+      .catch(next);
   } else {
-    return res.json({ profile: req.profile.toProfileJSONFor() });
+    return res.json({ profile: req.profile.toProfileJSONFor(false) });
   }
 });
 

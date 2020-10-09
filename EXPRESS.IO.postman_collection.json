@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "8dc5c344-bd96-407f-bc43-c23d79571ddc",
+		"name": "EXPRESS.IO",
+		"description": "Anonymous Blogging and LifeStyle Platform Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": {\r\n        \"email\": \"emailer@email.com\",\r\n        \"password\": \"password\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expressio-api.herokuapp.com/api/users",
+							"protocol": "https",
+							"host": [
+								"expressio-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "create new user"
+					},
+					"response": [
+						{
+							"name": "register user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"emailer@email.com\",\r\n        \"password\": \"password\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://expressio-api.herokuapp.com/api/users",
+									"protocol": "https",
+									"host": [
+										"expressio-api",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "296"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"128-eruuE2EbOCkhvYAo0DxDOzWmHzM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Oct 2020 20:31:56 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"username\": \"nessa\",\n        \"email\": \"emailer@email.com\",\n        \"id\": \"5f80c8bcb9910b001720b5c3\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODBjOGJjYjk5MTBiMDAxNzIwYjVjMyIsInVzZXJuYW1lIjoibmVzc2EiLCJleHAiOjE2MDc0NTk1MTYsImlhdCI6MTYwMjI3NTUxNn0.28xmSt4IF_K6vCBtYqG7a2O_mILBcgahUg6ocNlzOvE\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": {\r\n        \"email\": \"emailer@email.com\",\r\n        \"password\": \"password\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expressio-api.herokuapp.com/api/users/login",
+							"protocol": "https",
+							"host": [
+								"expressio-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						},
+						"description": "login existing user"
+					},
+					"response": [
+						{
+							"name": "login user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\": {\r\n        \"email\": \"emailer@email.com\",\r\n        \"password\": \"password\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://expressio-api.herokuapp.com/api/users/login",
+									"protocol": "https",
+									"host": [
+										"expressio-api",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Cowboy"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "296"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"128-J3A0834CmNxWEGZ4lQKZhz+XkF0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Oct 2020 20:36:04 GMT"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"username\": \"nessa\",\n        \"email\": \"emailer@email.com\",\n        \"id\": \"5f80c8bcb9910b001720b5c3\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODBjOGJjYjk5MTBiMDAxNzIwYjVjMyIsInVzZXJuYW1lIjoibmVzc2EiLCJleHAiOjE2MDc0NTk3NjQsImlhdCI6MTYwMjI3NTc2NH0.8tbPbtkjGoblEJU_7kZ-Yq8Evp6yBNstHcR7X20AdHI\"\n    }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ROOM",
+			"item": [],
+			"description": "crud endpoints for rooms",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "endpoint to retrieve user profile"
+			},
+			"response": [
+				{
+					"name": "profile",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/profiles/:username",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"profiles",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "nessa"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"32-zvH4Nz6sMWC5J4LsiJuqcKIYMSw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 09 Oct 2020 21:29:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"profile\": {\n        \"username\": \"nessa\",\n        \"following\": false\n    }\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
