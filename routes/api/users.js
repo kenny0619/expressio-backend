@@ -6,11 +6,10 @@ const User = model("User");
 
 const { uniqueNamesGenerator, names } = require("unique-names-generator");
 
-const randomName = uniqueNamesGenerator({ dictionaries: [names] });
-
 const auth = require("../auth");
 // create registration route
 router.post("/users", (req, res, next) => {
+  let randomName = uniqueNamesGenerator({ dictionaries: [names] });
   const user = new User();
 
   user.username = randomName;
