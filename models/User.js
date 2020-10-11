@@ -24,6 +24,7 @@ const UserSchema = new Schema(
     },
     hash: String,
     salt: String,
+    follows: [{ type: Schema.Types.ObjectId, ref: "Room" }],
   },
   { timestamps: true }
 );
@@ -78,6 +79,28 @@ UserSchema.methods.toProfileJSONFor = function (user) {
     username: this.username,
     following: false,
   };
+};
+
+// User method to follow a room
+UserSchema.methods.follow = function (id) {
+  if (this.follows.indexOf(id) === -1) {
+    this.follows.push(id);
+  }
+
+  return this.save();
+};
+// User method to unfollow a room
+UserSchema.methods.unfollow = function (id) {
+  this.follows.remove(id);
+
+  return this.save();
+};
+
+// method to check if you follow a room
+UserSchema.methods.isFollow = function (id) {
+  return this.follows.some(function (followId) {
+    return followId.toString() === id.toString();
+  });
 };
 
 model("User", UserSchema);

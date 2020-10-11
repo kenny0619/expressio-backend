@@ -8,17 +8,7 @@ const session = require("express-session");
 
 const app = express();
 
-// app.use((req, res, next) => {
-//   const whitelist = [process.env.LOCALHOST_URI, process.env.NETLIFY_URI];
-
-//   let isDomainAllowed = whitelist.indexOf(req.headers.origin) !== -1;
-
-//   if (isDomainAllowed) {
-//     res.header("ACCESS-CONTROL-ALLOW-ORIGIN", req.headers.origin);
-//   }
-
-//   next();
-// });
+//use cors
 app.use(cors());
 
 app.use(logger("dev"));
@@ -38,6 +28,7 @@ app.use(
 
 require("./db/mongoose");
 require("./models/User");
+require("./models/Room");
 require("./config/passport");
 
 app.use(require("./routes"));

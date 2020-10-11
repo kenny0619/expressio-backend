@@ -20,6 +20,7 @@
     "method-override": "^3.0.0",
     "methods": "^1.1.2",
     "mongoose": "^5.10.7",
+    "mongoose-slug-generator": "^1.0.4",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
@@ -28,6 +29,7 @@
     "slugify": "^1.4.5",
     "underscore": "^1.11.0",
     "unique-names-generator": "^4.3.1",
+    "unique-slug": "^2.0.2",
     "validator": "^13.1.17"
   }
 }
