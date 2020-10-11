@@ -95,7 +95,7 @@ router.delete("/:room", auth.required, (req, res, next) => {
 router.post("/:room/follow", auth.required, (req, res, next) => {
   const roomId = req.room._id;
 
-  User.findById(req.params.id)
+  User.findById(req.query.id)
     .then((user) => {
       if (!user) {
         return res.sendStatus(401);
@@ -114,7 +114,7 @@ router.post("/:room/follow", auth.required, (req, res, next) => {
 router.delete("/:room/follow", auth.required, (req, res, next) => {
   const roomId = req.room._id;
 
-  User.findById(req.params.id)
+  User.findById(req.query.id)
     .then((user) => {
       if (!user) {
         return res.sendStatus(401);
