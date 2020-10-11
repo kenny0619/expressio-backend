@@ -7,7 +7,7 @@ const RoomSchema = new Schema(
     slug: { type: String, lowercase: true, unique: true },
     theme: String,
     about: String,
-    followed: user ? user.isFollow(this._id) : false,
+
     followingsCount: { type: Number, default: 0 },
     creator: { type: Schema.Types.ObjectId, ref: "User" },
   },
@@ -22,6 +22,7 @@ RoomSchema.methods.toJSONFor = function (user) {
     slug: this.slug,
     theme: this.theme,
     about: this.about,
+    followed: user ? user.isFollow(this._id) : false,
     followingsCount: this.followingsCount,
     creator: this.creator.toProfileJSONFor(user).username,
   };

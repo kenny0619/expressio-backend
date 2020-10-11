@@ -56,9 +56,9 @@ router.get("/:room", auth.optional, (req, res, next) => {
 });
 
 // endpoint for updating rooms info
-router.put(":/room", auth.required, (req, res, next) => {
+router.put("/:room", auth.required, (req, res, next) => {
   User.findById(req.params.id).then((user) => {
-    if (req.rooms.creator._id.toString() === req.params.id.toString()) {
+    if (req.room.creator._id.toString() === req.query.id.toString()) {
       if (typeof req.body.room.theme !== "undefined") {
         req.room.theme = req.body.room.theme;
       }
@@ -79,9 +79,9 @@ router.put(":/room", auth.required, (req, res, next) => {
 });
 
 // endpoint for deleting rooms
-router.delete("/room", auth.required, (req, res, next) => {
+router.delete("/:room", auth.required, (req, res, next) => {
   User.findById(req.params.id).then(() => {
-    if (req.rooms.creator._id.toString() === req.params.id.toString()) {
+    if (req.room.creator._id.toString() === req.query.id.toString()) {
       return req.room.remove().then(() => {
         return res.sendStatus(204);
       });
